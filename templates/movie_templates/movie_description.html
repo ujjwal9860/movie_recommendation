@@ -1,0 +1,132 @@
+{% extends 'movie_templates/header.html' %}
+
+{% block content %}
+
+<header class="jumbotron mt-5" style="font-family: cursive ;">
+    <div class="container-fluid">
+      <div class="row row-header">
+        <div class="col-12 col-sm-6">
+          
+          <h1>{{movie_title}}</h1>
+        </div>
+      </div>
+      <div class="row row-content">
+        <div class="col-12 col-sm">
+                <a href={{movie_poster}}>
+                <img
+                  src={{movie_poster}}
+                  class="d-block img-fluid"
+                  width="200"
+                  style="border-radius: 20px;"
+                  
+                  alt={{movie_title[11]}} />
+                </a>
+                </div>
+                <div class=" col-12 col-sm-10 d-none d-md-block mt-3">
+                  
+                  <p class="d-none d-sm-block">
+                    {{overview}}
+                  </p>
+                  <p class="d-none d-sm-block">
+                    <strong>Genres: </strong>{{genres}}
+                  </p>
+                  <p class="d-none d-sm-block">
+                    <strong>Casts: </strong>{{casts}}
+                  </p>
+                  <p class="d-none d-sm-block">
+                    <strong>Directed By: </strong>{{crew[-1]}}
+                  </p>
+                  <p class="d-none d-sm-block">
+                    <strong>Produced By: </strong>{{crew[-2]}}
+                  </p>
+                  <p class="d-none d-sm-block">
+                    <strong>Tagline: </strong>{{movie_tagline}}
+                  </p>
+                  <p class="d-none d-sm-block">
+                    <strong>Production Company: </strong>{{production_company}}
+                  </p>
+                </div>
+              </div>
+              
+            </div>
+            
+          </div>
+        
+  </header>
+  {% if recommended_movies%}
+        <div class="container-fluid bg-dark">
+          <h3 class="text-light mt-5" style="text-align:center;">Because you've watched: <strong>{{movie_title}}:</strong> You might also like</h3>
+        <div class="row justify-content-center ">
+        {% for i in range(5)%}
+        <div class="col-md-2 mt-5 text-center">
+          <div class="card bg-dark" style="width: 18rem; color:floralwhite;">
+            <a href="/movie_description?name={{recommended_movies[i]}}"><img
+              class="card-img-top"
+              style="border-radius: 40px;"
+              src={{recommended_movies_posters[i] }}
+              alt="Card image cap" />
+            </a>
+            <div class="card-body">
+              <h5 class="card-title"><strong> {{recommended_movies[i]}}</strong></h5>
+              
+              
+            </div>
+          </div>
+        </div>
+        {% endfor %}
+        </div>
+        </div>
+        {% endif %}
+
+        <div class="container-fluid mb-5 mt-5">
+          <div class="row mt-5" style="text-align: center;">
+  
+            <div class="col-4">
+              <div class="card card-body bg-dark" style="border-radius: 70px; color: floralwhite;">
+                <blockquote class="blockquote">
+                  <p class="mb-2">
+                    <strong>"That’s my secret, Captain. I’m always angry.” </strong>
+                  </p>
+                  <footer class="blockquote-footer text-light">
+                    
+                    <cite title="Source Title" class="text-light"
+                      >Hulk, The Avengers</cite
+                    >
+                  </footer>
+                </blockquote>
+              </div>
+            </div>
+            <div class="col-4">
+              <div class="card card-body bg-dark" style="border-radius: 70px; color: floralwhite; ">
+                <blockquote class="blockquote">
+                  <p class="mb-2">
+                    <strong>{{movie_tagline}}</strong>
+                  </p>
+                  <footer class="blockquote-footer text-light">
+                    
+                    <cite title="Source Title" class="text-light"
+                      >{{movie_title}}, {{production_company}}</cite
+                    >
+                  </footer>
+                </blockquote>
+              </div>
+            </div>
+            <div class="col-4">
+              <div class="card card-body bg-dark" style="border-radius: 70px; color: floralwhite; ">
+                <blockquote class="blockquote">
+                  <p class="mb-2">
+                    <strong>"I am Groot."</strong>
+                  </p>
+                  <footer class="blockquote-footer text-light">
+                    
+                    <cite title="Source Title" class="text-light"
+                      >Guardians Of The Galaxy, 2014</cite
+                    >
+                  </footer>
+                </blockquote>
+              </div>
+            </div>
+            
+          </div>
+        </div>
+{% endblock %}

@@ -1,0 +1,21 @@
+{% extends "movie_templates/enter_site.html"%} {% block content %}
+
+<div class="card-body">
+  <form action="/otp_validation" class="form" method="POST">
+    <center>
+      <p class="mb-5 text-warning">
+        <strong>Please Check your mail for otp</strong>
+      </p>
+    </center>
+    <center>
+      <label for="otp" class="mb-4"><strong>Enter OTP</strong></label
+      ><br />
+    </center>
+    <input type="text" class="form-control mb-2" name="otp" id="otp" /><br />
+    
+    <center>
+      <input type="submit" class="btn btn-primary btn-md mb-3" value="Submit" />
+    </center>
+  </form>
+</div>
+{% endblock %}

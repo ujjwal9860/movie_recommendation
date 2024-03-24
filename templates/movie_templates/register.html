@@ -1,0 +1,23 @@
+{% extends "movie_templates/enter_site.html"%} {% block content %}
+
+<div class="card-body">
+  <form action="/add_user" class="form" method="POST">
+    <label for="name">Name</label><br />
+    <input type="name" class="form-control" name="uname" id="name" /><br />
+    <label for="email">Email</label><br />
+    <input type="email" class="form-control" name="uemail" id="email" /><br />
+    <label for="password">Password</label><br />
+    <input
+      type="password"
+      name="upassword"
+      id="password"
+      class="form-control" /><br /><br />
+     <input
+      type="submit"
+      class="btn btn-danger btn-block btn-lg"
+      value="Register" />
+      <p class="mt-4">Have an account?<a href="/"> log-in </a>here</p>
+
+  </form>  
+    </div>  
+{% endblock %}

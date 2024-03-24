@@ -1,0 +1,145 @@
+{% extends 'movie_templates/header.html' %}
+{%block contact_status%}active{% endblock %}
+{%block content%}
+<div class="container-fluid mt-5 text-light">
+      <div class="row row-content">
+        <div class="col-7">
+          <h3><strong> Send us your Feedback</strong></h3>
+        </div>
+        <div class="col-5">
+        </div>
+        <div class="col-12 col-md-6 mr-5 ml-5" style="padding: 20px">
+          <form action="/feedback" class="form" method="post">
+            <div class="form-group row">
+              <label for="firstname" class="col-md-2 col-form-label"
+                >First Name</label
+              >
+              <div class="col-md-10">
+                <input
+                  type="text"
+                  class="form-control"
+                  name="firstname"
+                  id="firstname"
+                  placeholder="First Name" />
+              </div>
+            </div>
+            <div class="form-group row">
+              <label for="lastname" class="col-md-2 col-form-label"
+                >Last Name</label
+              >
+              <div class="col-md-10">
+                <input
+                  type="text"
+                  class="form-control"
+                  name="lastname"
+                  id="lastname"
+                  placeholder="Last Name" />
+              </div>
+            </div>
+            <div class="form-group row">
+              <label for="telnum" class="col-12 col-md-2 col-form-label"
+                >Contact Tel.</label
+              >
+              <div class="col-5 col-md-3">
+                <input
+                  type="tel"
+                  class="form-control"
+                  name="areacode"
+                  id="tel"
+                  placeholder="Area Code" />
+              </div>
+              <div class="col-7 col-md-7">
+                <input
+                  type="tel"
+                  class="form-control"
+                  name="telnum"
+                  id="telnum"
+                  placeholder="Tel. Number" />
+              </div>
+            </div>
+            <div class="form-group row">
+              <label for="emailid" class="col-md-2 col-form-label">Email</label>
+              <div class="col-md-10">
+                <input
+                  type="email"
+                  class="form-control"
+                  name="emailid"
+                  id="emailid"
+                  placeholder="Email" />
+              </div>
+            </div>
+            <div class="form-group row">
+              <div class="col-md-6 offset-md-2">
+                <div class="form-check">
+                  <input
+                    type="checkbox"
+                    class="form-check-input"
+                    name="approve"
+                    id="approve"
+                    value="ok" />
+                  <label for="approve" class="form-check-label"
+                    ><strong>May we contact you?</strong></label
+                  >
+                </div>
+              </div>
+              <div class="col-md-3 offset-md-1">
+                <select class="form-control">
+                  <option value="">Tel.</option>
+                  <option value="">Email.</option>
+                </select>
+              </div>
+            </div>
+            <div class="form-group row">
+              <label for="feedback" class="col-md-2 col-form-label"
+                >Your Feedback</label
+              >
+              <div class="col-md-10">
+                <textarea
+                  class="form-control"
+                  name="feedback"
+                  id="feedback"
+                  rows="12"></textarea>
+              </div>
+            </div>
+            <div class="form-group row">
+              <div class="offset-md-2 col-md-10">
+                <button
+                  type="submit"
+                  class="btn btn-danger text-light"
+                  style="
+                    background-color: red;
+                    padding: 10px;
+                    border-radius: 10px;
+                  ">
+                  <strong>Send Feedback</strong>
+                </button>
+              </div>
+            </div>
+          </form>
+        </div>
+        <div class="col-12 col-md-4 mt-4">
+          <!--Google map-->
+          
+        </div>
+      </div>
+      <div class="row mt-5" style="text-align: center">
+        <div class="col-12">
+          <h3 class="mb-5"><strong> Our Location </strong></h3>
+          <div
+            id="map-container-google-2"
+            class="z-depth-1-half map-container justify-content-center"
+            style="height: 700px">
+            <iframe
+              src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3531.1724181243217!2d85.3257430155998!3d27.74282748277729!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x39eb1930f07b694b%3A0x73ab92d299e7d19f!2zMjfCsDQ0JzM0LjUiTiA4NcKwMTknMzcuNCJF!5e0!3m2!1sen!2sus!4v1666286966796!5m2!1sen!2sus"
+              width="700"
+              height="565"
+              style="border: 0"
+              allowfullscreen=""
+              loading="lazy"
+              referrerpolicy="no-referrer-when-downgrade"></iframe>
+          </div>
+        </div>
+      </div>
+    </div>
+
+{% endblock %}

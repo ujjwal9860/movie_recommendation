@@ -1,0 +1,185 @@
+{% extends "movie_templates/header.html"%}
+{% block recommend_status %}active{% endblock %}
+{% block content %}
+    <header class="jumbotron mt-5">
+      <div class="container-fluid">
+        <div class="row row-header">
+          <div class="col-12 col-sm-6">
+            <h1>Trending Movies</h1>
+          </div>
+        </div>
+        <div class="row row-content">
+          <div class="col">
+            <div id="mycarousel" class="carousel slide" data-ride="carousel">
+              <div class="carousel-inner" role="listbox">
+                {% for i in range(3) %} {% endfor %}
+                <div class="carousel-item active">
+                  <img
+                    src="{{movie_poster[4]}}"
+                    class="d-block img-fluid"
+                    width="200"
+                    style="border-radius: 20px"
+                    alt="{{movie_title[4]}}" />
+                  <div class="carousel-caption d-none d-md-block">
+                    <h2>
+                      <a href="/movie_description?name={{movie_title[4]}}"><span class="badge badge-danger">{{movie_title[4]}}</span></a>
+                    </h2>
+                    <p class="d-none d-sm-block">{{overview[4]}}</p>
+                  </div>
+                </div>
+                <div class="carousel-item">
+                  <img
+                    src="{{movie_poster[5]}}"
+                    class="d-block img-fluid"
+                    width="200"
+                    style="border-radius: 20px"
+                    alt="{{movie_title[5]}}" />
+                  <div class="carousel-caption d-none d-md-block">
+                    <h2>
+                      <a href="/movie_description?name={{movie_title[5]}}"><span class="badge badge-danger">{{movie_title[5]}}</span></a>
+                    </h2>
+                    <p class="d-none d-sm-block">{{overview[5]}}</p>
+                  </div>
+                </div>
+                <div class="carousel-item">
+                  <img
+                    src="{{movie_poster[6]}}"
+                    class="d-block img-fluid"
+                    width="200"
+                    alt={{movie_title[6]}}
+                    style="border-radius: 20px" />
+                  <div class="carousel-caption d-none d-md-block">
+                    <h2>
+                      <a href="/movie_description?name={{movie_title[6]}}"><span class="badge badge-danger">{{movie_title[6]}}</span></a>
+                    </h2>
+                    <p class="d-none d-sm-block">{{overview[6]}}</p>
+                  </div>
+                </div>
+              </div>
+              <ol class="carousel-indicators">
+                <li
+                  data-target="#mycarousel"
+                  data-slide-to="0"
+                  class="active"></li>
+                <li data-target="#mycarousel" data-slide-to="1"></li>
+                <li data-target="#mycarousel" data-slide-to="2"></li>
+              </ol>
+              <a
+                href="#mycarousel"
+                class="carousel-control-prev"
+                role="button"
+                data-slide="prev">
+                <span class="carousel-control-prev-icon"></span>
+              </a>
+              <a
+                href="#mycarousel"
+                class="carousel-control-next"
+                role="button"
+                data-slide="next">
+                <span class="carousel-control-next-icon"></span>
+              </a>
+              <button class="btn btn-danger btn-sm" id="carouselButton">
+                <span class="fa fa-pause"> </span>
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </header>
+
+    <div class="container-fluid bg-dark">
+
+      <div class="row mt-5 justify-content-center">
+        <div class="col-md-6">
+          <form action="/recommend_movies" method="POST">
+            <input class="form-control" list="browsers" name="user_input">
+            <datalist id="browsers">
+              {% for i in movie_title %}
+                <option>{{i}}</option>
+              {% endfor %}
+              
+            </datalist>
+            
+            <button type="submit" class="btn btn-lg" style="margin-top: 10px; background-color: #E40812; color: floralwhite;"><strong>Recommend</strong></button>
+          </form>
+        </div>
+        </div>
+        </div>
+        {% if recommended_movies%}
+        <div class="container-fluid bg-dark">
+          <h3 class="text-light mt-5" style="text-align:center;">Recommendations for <strong>{{typed_value}}:</strong> </h3>
+        <div class="row justify-content-center ">
+        {% for i in range(5)%}
+        <div class="col-md-2 mt-5 text-center">
+          <div class="card bg-dark" style="width: 18rem; color:floralwhite;">
+            <a href="/movie_description?name={{recommended_movies[i]}}"><img
+              class="card-img-top"
+              style="border-radius: 40px;"
+              src={{recommended_movies_posters[i] }}
+              alt="Card image cap" />
+            </a>
+            <div class="card-body">
+              <h5 class="card-title"><strong> {{recommended_movies[i]}}</strong></h5>
+              
+              
+            </div>
+          </div>
+        </div>
+        {% endfor %}
+        </div>
+        </div>
+        {% endif %}
+<div class="container-fluid mb-5 mt-5">
+        <div class="row mt-5" style="text-align: center;">
+
+          <div class="col-4">
+            <div class="card card-body bg-dark" style="border-radius: 70px; color: floralwhite;">
+              <blockquote class="blockquote">
+                <p class="mb-2">
+                  <strong>"That’s my secret, Captain. I’m always angry.” </strong>
+                </p>
+                <footer class="blockquote-footer text-light">
+                  
+                  <cite title="Source Title" class="text-light"
+                    >Hulk, The Avengers</cite
+                  >
+                </footer>
+              </blockquote>
+            </div>
+          </div>
+          <div class="col-4">
+            <div class="card card-body bg-dark" style="border-radius: 70px; color: floralwhite; ">
+              <blockquote class="blockquote">
+                <p class="mb-2">
+                  <strong>"I am Groot."</strong>
+                </p>
+                <footer class="blockquote-footer text-light">
+                  
+                  <cite title="Source Title" class="text-light"
+                    >Guardians Of The Galaxy, 2014</cite
+                  >
+                </footer>
+              </blockquote>
+            </div>
+          </div>
+          <div class="col-4">
+            <div class="card card-body bg-dark" style="border-radius: 70px; color: floralwhite; ">
+              <blockquote class="blockquote">
+                <p class="mb-2">
+                  <strong>“Avengers, assemble!” </strong>
+                </p>
+                <footer class="blockquote-footer text-light">
+                  
+                  <cite title="Source Title" class="text-light"
+                    >Captain America, Avengers: Endgame</cite
+                  >
+                </footer>
+              </blockquote>
+            </div>
+          </div>
+        </div>
+      </div>
+  
+
+
+{% endblock %}
